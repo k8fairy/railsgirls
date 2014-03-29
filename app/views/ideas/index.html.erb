@@ -1,0 +1,36 @@
+<h1>Listing ideas</h1>
+<p class="bold-text"><a href="/pages/info">Kate</a></p>
+<p ><%= link_to "info page", pages_info_path%></p>
+<p class="blue-dog">brown fox jumps over the lazy dog</p>
+<p class="blue-dog" id="red-dog">brown fox jumps over the lazy dog</p>
+<p >brown fox jumps over the lazy dog</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Show', idea %></td>
+        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea', new_idea_path %>
